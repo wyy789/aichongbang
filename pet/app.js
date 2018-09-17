@@ -14,6 +14,7 @@ var serivceRouter = require('./routes/serivce');
 var theorderRouter = require('./routes/theorder');
 var storelistRouter = require('./routes/storelist');
 
+var session = require('express-session');
 
 
 var app = express();
@@ -26,6 +27,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: "pet",
+  resave: true,
+  saveUninitialized: false
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
