@@ -12,7 +12,6 @@ export default {
         }
     },
     mutations: {
-        
         getEmpByPage(state, payload) {
             Object.assign(state, payload)
         },
