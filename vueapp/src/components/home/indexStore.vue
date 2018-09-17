@@ -11,6 +11,7 @@
                                 <span slot="title">门店申请</span>
                             </el-menu-item> -->
                             <el-submenu index="1">
+                                
                                 <template slot="title">
                                     <i class="el-icon-location"></i>
                                     <span>门店管理</span>

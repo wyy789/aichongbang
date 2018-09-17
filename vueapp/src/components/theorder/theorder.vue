@@ -138,6 +138,7 @@ export default {
           cancelButtonText: 'No',
           type: 'warning'
         }).then(() => {
+            
           this.asyncdelete(row._id)
           this.asyncGetEmpByPage();
           this.$message({

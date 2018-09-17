@@ -6,6 +6,7 @@ client.url('localhost:8081');
 
 //获取
 router.get("/order", async function (req, res, next) {
+    
     // console.log(req.query.type)
     // let query = req.query
     let type=req.query.type
