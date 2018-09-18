@@ -164,9 +164,11 @@
 
 <script>
 import { mapMutations, mapState, mapActions } from "vuex";
+
 export default {
-    mounted() {
-        this.ansycgetStore();
+    async mounted() {
+        await this.asyncSession();
+        await this.ansycgetStore();
     },
     computed: {
         ...mapState("storelist", [
@@ -192,7 +194,8 @@ export default {
             "asyncSeeService",
             "asyncShelvesGoods",
             "asyncShelvesServe",
-            "ansycsearch"
+            "ansycsearch",
+            "asyncSession"
         ]),
         ...mapMutations("storelist", [
             "getstoreList",

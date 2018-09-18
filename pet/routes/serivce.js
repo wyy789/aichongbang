@@ -38,21 +38,16 @@ router.post("/addSer",async function (req,res,next) {
     await client.post("/service",data);
     res.send("success");
 })
-
-//搜索
-router.get("/searchSer",async function (req,res,next) {
-    let type = req.query.type;
-    let text = req.query.text;
-    let page = parseInt(req.query.page)
-    let rows = parseInt(req.query.rows)
-    let userName = req.query.userName;
-    let obj={page,rows,userName};
-    if(text){
-        obj[type]=text
-    }
-    let data = await client.get("/service",obj);
-    // console.log(data,"123123213123")
-    res.send(data);
+//修改
+router.put("/putSer",async function (req,res,next) {
+    let data = req.body;
+    let id = data._id;
+    delete data._id;
+    // console.log(data,id)
+    await client.put("/service/"+id,data);
+    res.send("success");
 })
+
+
 
 module.exports = router;

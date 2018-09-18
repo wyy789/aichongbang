@@ -22,6 +22,10 @@
                                 <i class="el-icon-setting"></i>
                                 <span slot="title">宠主管理</span>
                             </el-menu-item>
+                            <el-menu-item index="/indexForum/commodity">
+                                <i class="el-icon-setting"></i>
+                                <span slot="title">商品管理</span>
+                            </el-menu-item>
                         </el-menu>
                     </el-col>
                 </el-row>

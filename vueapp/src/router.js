@@ -14,6 +14,7 @@ import usercontrol from "./components/usercontrol/usercontrol"
 import indexStore from "./components/home/indexStore"
 import indexForum from "./components/home/indexForum"
 import storelist from "./components/storelist/storelist"
+import storeCommodity from "./components/storeCommodity/storeCommodity"
 
 // import StoreList from './components/storemanagement/storemanagement'
 Vue.use(Router)
@@ -35,9 +36,9 @@ export default new Router({
       name: 'indexStore',
       component: indexStore,
       children:[ {
-        path: 'commodity',
-        name: 'commodity',
-        component: commodity
+        path: 'storeCommodity',
+        name: 'storeCommodity',
+        component: storeCommodity
       },
       {
         path: 'serivce',
@@ -80,7 +81,13 @@ export default new Router({
         path: 'usercontrol',
         name: 'usercontrol',
         component: usercontrol
-      },]
+      },
+      {
+        path: 'commodity',
+        name: 'commodity',
+        component: commodity
+      }
+    ]
     },
    
     // {

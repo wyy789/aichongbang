@@ -12,67 +12,67 @@
 </div>
     <el-table
     :data="rows"
-    border
+   
     style="width: 100%"
     >
     <el-table-column
       prop="_id"
       label="订单号"
-      width="250"
+      
       align="center">
     </el-table-column>
     <el-table-column
       prop="memberName"
       label="姓名"
-      width="100"
+      
       align="center">
     </el-table-column>
     <el-table-column
       prop="memberPhone"
       label="电话"
-      width="150"
+      
       align="center">
     </el-table-column>
     <el-table-column
       prop="memberArea"
       label="市区"
-      width="100"
+      
       align="center">
     </el-table-column>
     <el-table-column
       prop="shopName"
       label="店名"
-      width="100"
+      
       align="center">
     </el-table-column>
     <el-table-column
       prop="goodsMaterial"
       label="商品/服务"
-      width="100"
+      
       align="center">
     </el-table-column>
      <el-table-column
       prop="quantity"
       label="数量"
-      width="100"
+      
       align="center">
     </el-table-column>
      <el-table-column
       prop="goodsPrice"
       label="单价"
-      width="100"
+      
       align="center">
     </el-table-column>
     <el-table-column
       prop="memberAdd"
       label="收货地址"
-      width="250"
+      
       align="center">
     </el-table-column>
     <el-table-column
     fixed="right"
       label="操作"
-      width="110"
+      
       align="center">
       <template slot-scope="scope">
         <el-button type="text" size="small" @click="open2(scope.row)">删除</el-button>
