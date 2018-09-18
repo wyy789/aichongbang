@@ -13,6 +13,7 @@ var memberRouter = require('./routes/member');
 var serivceRouter = require('./routes/serivce');
 var theorderRouter = require('./routes/theorder');
 var storelistRouter = require('./routes/storelist');
+var storeapplicationRouter = require('./routes/storeapplication');
 
 var session = require('express-session');
 
@@ -43,7 +44,7 @@ app.use('/member', memberRouter);
 app.use('/serivce', serivceRouter);
 app.use('/theorder', theorderRouter);
 app.use('/storelist', storelistRouter);
-
+app.use('/storeapplication', storeapplicationRouter);
 
 
 // catch 404 and forward to error handler
