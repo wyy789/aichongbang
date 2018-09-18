@@ -21,14 +21,14 @@
                                 </template>
                                 <el-menu-item-group>
                                     <el-menu-item index="/indexStore/storelist">门店列表</el-menu-item>
-                                    <el-menu-item index="1-2">门店申请</el-menu-item>
+                                    <el-menu-item index="/indexStore/storeapplication">门店申请</el-menu-item>
                                 </el-menu-item-group>
                             </el-submenu>
                             <el-menu-item index="/indexStore/theorder">
                                 <i class="el-icon-setting"></i>
                                 <span slot="title">订单管理</span>
                             </el-menu-item>
-                            <el-menu-item index="3">
+                            <el-menu-item index="/indexStore/storeCommodity">
                                 <i class="el-icon-setting"></i>
                                 <span slot="title">商品管理</span>
                             </el-menu-item>
