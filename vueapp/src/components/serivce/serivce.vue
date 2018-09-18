@@ -14,62 +14,62 @@
     <el-table
     class="serviceTable"
     :data="rows"
-    border
+    
     style="width: 100%">
     <el-table-column
       fixed
       prop="serviceName"
       label="名称"
-      width="112"
+      
       align="center"
       >
     </el-table-column>
     <el-table-column
       prop="serviceType"
       label="类别"
-      width="112"
+      
       align="center">
     </el-table-column>
     <el-table-column
       prop="serviceSchedule"
       label="排期"
-      width="112"
+      
       align="center">
     </el-table-column>
     <el-table-column
       prop="serviceCanFor"
       label="适用规格"
-      width="112"
+      
       align="center">
     </el-table-column>
     <el-table-column
       prop="serviceDetial"
       label="服务规格"
-      width="112"
+      
       align="center"
       >
     </el-table-column>
     <el-table-column
       prop="serviceTime"
       label="耗时(分钟)"
-      width="112"
+      
       align="center">
     </el-table-column>    
     <el-table-column
       prop="serviceLevel"
       label="服务员等级"
-      width="112"
+      
       align="center">
     </el-table-column>
     <el-table-column
       prop="servicePrice"
       label="价格(元)"
-      width="112"
+      
       align="center">
     </el-table-column>
     <el-table-column
       label="操作"
-      width="112"
+      
       align="center">
       <template slot-scope="scope">
         <el-button @click="putDialog(scope.row)" type="text" size="small">修改</el-button>
