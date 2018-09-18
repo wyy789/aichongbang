@@ -20,7 +20,7 @@
                                     <span>门店管理</span>
                                 </template>
                                 <el-menu-item-group>
-                                    <el-menu-item index="1-1">门店列表</el-menu-item>
+                                    <el-menu-item index="/indexStore/storelist">门店列表</el-menu-item>
                                     <el-menu-item index="1-2">门店申请</el-menu-item>
                                 </el-menu-item-group>
                             </el-submenu>

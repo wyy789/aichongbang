@@ -12,7 +12,7 @@ router.get('/', async function (req, res, next) {
     let name = req.query.username
     let type = req.query.type
     let text = req.query.text
-    let obj = { page, rows, findType: "exact" }
+    let obj = { page, rows }
     obj.username = name
     console.log(obj)
     if (type) {

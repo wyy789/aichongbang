@@ -10,12 +10,16 @@ export default {
         service: [],
         seeGoods: [],
         seeService: [],
-        obj:{
-            type:"",
-            value:""
-        }
+        obj: {
+            type: "",
+            value: ""
+        },
+        username: ""
     },
     mutations: {
+        getUsername(state,data){
+            state.username=data
+        },
         getstoreList(state, data) {
             Object.assign(state, data)
         },
@@ -41,22 +45,34 @@ export default {
         },
     },
     actions: {
-        async ansycgetStore(context,obj) {
-            obj=obj?obj:context.state.obj;
-            let data = await fetch(`/storelist?type=${obj.type}&text=${obj.value}&username=zhangsan&page=${context.state.curpage}&rows=${context.state.eachpage}`, {
+        async asyncSession(context) {
+            let data=await fetch(`/users/yonghu`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            }).then(res=>{
+                return res.json()
+            })
+            context.commit("getUsername",data.userPhone)
+        },
+        async ansycgetStore(context, obj) {
+            obj = obj ? obj : context.state.obj;
+            let data = await fetch(`/storelist?type=${obj.type}&text=${obj.value}&username=${context.state.username}&page=${context.state.curpage}&rows=${context.state.eachpage}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
                 },
             }).then(response => {
                 // console.log(response.json())
+                console.log(context)
                 return response.json()
             })
             console.log(data)
             context.commit("getstoreList", data)
         },//得到用户名下的商店
         async ansycgetGoods(context) {
-            let data = await fetch(`/storelist/goods?username=zhangsan`, {
+            let data = await fetch(`/storelist/goods?username=${context.state.username}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -80,7 +96,7 @@ export default {
 
         },//为用户下面的店面添加商品
         async asyncgetService(context) {
-            let data = await fetch(`/storelist/service?username=zhangsan`, {
+            let data = await fetch(`/storelist/service?username=${context.state.username}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -152,7 +168,7 @@ export default {
         },
         async ansycsearch(context, datas) {
             console.log(datas)
-            let data = await fetch(`/storelist?username=zhangsan&type=${datas.type}&text=${datas.value}&page=${datas.curpage||context.state.curpage}&rows=${datas.eachpage||context.state.eachpage}`, {
+            let data = await fetch(`/storelist?username=${context.state.username}&type=${datas.type}&text=${datas.value}&page=${datas.curpage || context.state.curpage}&rows=${datas.eachpage || context.state.eachpage}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
