@@ -48,6 +48,9 @@
 <script>
 import { mapActions, mapState, mapMutations } from "vuex";
 export default {
+  async created() {
+    await this.asyncGetUser();
+  },
   data() {
     return {
       application: {
@@ -61,7 +64,7 @@ export default {
         shopImg: "",
         shopFeature: "",
         status: "未审核",
-        userName: "10001",
+        userName: "",
         goods: [],
         service: []
       },
@@ -71,7 +74,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions("storeapplication", ["asyncAddStores"]),
+    ...mapActions("storeapplication", ["asyncAddStores","asyncGetUser"]),
     applicationStore() {
       //   this.applicationdialogFormVisible = true;
     },

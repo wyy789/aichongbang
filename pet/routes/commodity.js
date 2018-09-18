@@ -82,4 +82,9 @@ router.get("/storeGoods",async function(req,res,next){
     console.log(arr)
     res.send(arr)
 })
+// 获取所有商品数据
+router.get("/storeAllGoods",async function(req,res,next){
+    let data = await client.get("/goods")
+    res.send(data)
+})
 module.exports = router;
