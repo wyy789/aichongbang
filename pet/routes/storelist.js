@@ -13,7 +13,7 @@ router.get('/', async function (req, res, next) {
     let type = req.query.type
     let text = req.query.text
     let obj = { page, rows }
-    obj.username = name
+    obj.userName = name
     console.log(obj)
     if (type) {
         obj[type] = text
@@ -27,7 +27,7 @@ router.get('/', async function (req, res, next) {
 });
 router.get('/goods', async function (req, res, next) {
     let name = req.query.username
-    let data = await client.get('/goods', { username: name, findType: "exact" });
+    let data = await client.get('/goods', { userName: name, findType: "exact" });
     res.send(data)
     console.log(data)
 });
@@ -65,7 +65,7 @@ router.put('/goods/:id', async function (req, res, next) {
 });
 router.get('/service', async function (req, res, next) {
     let name = req.query.username
-    let data = await client.get('/service', { username: name, findType: "exact" });
+    let data = await client.get('/service', { userName: name, findType: "exact" });
     res.send(data)
 });
 router.put('/service/:id', async function (req, res, next) {
