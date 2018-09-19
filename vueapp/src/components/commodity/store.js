@@ -6,7 +6,6 @@ export default {
         rows: [],
         total: 0,
         maxpage: 0,
-        userName: "10001",
         data: {
             type: "",
             text: ""
@@ -41,7 +40,7 @@ export default {
             data = data ? data : context.state.data
             curPage = curPage ? curPage : context.state.curPage
             eachPage = eachPage ? eachPage : context.state.eachPage
-            const content = await fetch(`/commodity/goods?page=${context.state.curpage}&rows=${context.state.eachpage}&type=${data.type}&text=${data.text}&userName=${context.state.userName}`, {
+            const content = await fetch(`/commodity/goods?page=${context.state.curpage}&rows=${context.state.eachpage}&type=${data.type}&text=${data.text}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -49,11 +48,11 @@ export default {
             }).then(response => {
                 return response.json();
             })
-            console.log(content)
+            // console.log(content)
             context.commit("getEmpByPage", content)
         },
         async asyncDleteData(context, id) {
-            console.log(id)
+            // console.log(id)
            await fetch(`/commodity/deleteGoods/${id}`, {
                 method: "DELETE",
                 headers: {
@@ -64,7 +63,6 @@ export default {
             })
         },
         async asyncAddGoods(context,data){
-            data.userName = context.state.userName
             const content = await fetch(`/commodity/addGoods`, {
                 method: "POST",
                 headers: {
@@ -87,7 +85,7 @@ export default {
             }).then(response => {
                 return "success"
             })
-            console.log(content)
+            // console.log(content)
         }
     }
 }

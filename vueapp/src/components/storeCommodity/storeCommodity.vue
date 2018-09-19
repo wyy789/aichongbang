@@ -150,7 +150,8 @@ export default {
     ...mapActions("storeCommodity", [
       "asyncGetStoreGoods",
       "asyncGetUser",
-      "asyncGetStoreAllGoods"
+      "asyncGetStoreAllGoods",
+      "asyncPutUser"
     ]),
     ...mapMutations("storeCommodity", ["addUserName"]),
     addStoreGoods() {
@@ -163,6 +164,8 @@ export default {
     },
     addUser() {
       this.addUserName(this.arr);
+      this.asyncPutUser(this.arr);
+      this.asyncGetStoreGoods()
     }
   }
 };

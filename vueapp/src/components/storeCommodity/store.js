@@ -19,10 +19,10 @@ export default {
         },
         addUserName(state, payload) {
             console.log(payload)
-            for(let i=0;i<payload.length;i++){
+            for (let i = 0; i < payload.length; i++) {
                 payload[i].userName.push(state.userName)
             }
-            Object.assign(state.rows,payload)
+            Object.assign(state.rows, payload)
             console.log(state.rows)
         }
     },
@@ -63,6 +63,17 @@ export default {
                 return response.json();
             })
             context.commit("getUser", user.userPhone);
+        },
+        async asyncPutUser(context,data) {
+            const content = await fetch(`/commodity/putUser`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify(data)
+            }).then(response=>{
+                return response.json();
+            })
         }
     }
 }

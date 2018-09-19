@@ -93,7 +93,7 @@ export default {
       }
     },
     handleAvatarSuccess(res, file) {
-        console.log(res)
+        // console.log(res)
         this.application.shopImg = res
     },
     beforeAvatarUpload(file) {
