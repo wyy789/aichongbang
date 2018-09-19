@@ -10,8 +10,8 @@ export default {
     },
     actions: {
         async asyncAddStores(context, data) {
-            console.log(data)
-            console.log(context)
+            // console.log(data)
+            // console.log(context)
             data.userName=context.state.userName
             const content = await fetch(`/storeapplication/addStore`, {
                 method: "POST",
@@ -22,7 +22,7 @@ export default {
             }).then(response => {
                 return "success"
             })
-            console.log(content)
+            // console.log(content)
         },
         async asyncGetUser(context) {
             const user = await fetch(`/users/yonghu`, {

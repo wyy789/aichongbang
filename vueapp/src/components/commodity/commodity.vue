@@ -281,7 +281,8 @@ export default {
         goodsTime: "",
         goodsInrtro: "",
         goodsPrice: "",
-        goodsImg: ""
+        goodsImg: "",
+        userName: []
       },
       change: {
         goodsName: "",
@@ -297,7 +298,8 @@ export default {
         goodsTime: "",
         goodsInrtro: "",
         goodsPrice: "",
-        goodsImg: ""
+        goodsImg: "",
+        userName: []
       },
       formLabelWidth: "120px"
     };
@@ -340,8 +342,8 @@ export default {
       this.asyncGetGoodsByPage();
     },
     handleChange(row) {
-      console.log(row)
-      Object.assign(this.change,row)
+      console.log(row);
+      Object.assign(this.change, row);
       this.changedialogFormVisible = true;
     },
     // handleDelete(index, row) {
@@ -349,7 +351,7 @@ export default {
     //   this.asyncGetGoodsByPage();
     // },
     searchGoods() {
-      console.log(this.val, this.select);
+      // console.log(this.val, this.select);
       let obj = {};
       obj.type = this.select;
       obj.text = this.val;
@@ -357,11 +359,11 @@ export default {
     },
     handleAvatarSuccess(res, file) {
       // console.log(res,file)
-      this.form.goodsImg = res
+      this.form.goodsImg = res;
     },
     beforeAvatarUpload(file) {
       const isJPG = file.type === "image/jpeg";
-      console.log(file.type)
+      // console.log(file.type);
       const isLt2M = file.size / 1024 / 1024 < 2;
       if (!isJPG) {
         this.$message.error("上传头像图片只能是 JPG 格式!");
@@ -375,15 +377,18 @@ export default {
       this.dialogFormVisible = false;
       let obj = {};
       Object.assign(obj, this.form);
-      console.log(obj);
+      // console.log(obj);
       this.asyncAddGoods(obj);
-      this.asyncGetGoodsByPage;
+      for (let key in this.form) {
+        this.form[key] = "";
+      }
+      this.asyncGetGoodsByPage();
     },
     changeGoods() {
       this.changedialogFormVisible = false;
       let obj = {};
       Object.assign(obj, this.change);
-      console.log(obj);
+      // console.log(obj);
       this.asyncChange(obj);
       this.asyncGetGoodsByPage();
     },
