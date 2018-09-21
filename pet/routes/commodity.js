@@ -73,8 +73,10 @@ router.get("/storeGoods", async function (req, res, next) {
     // console.log(data)
     let arr = []
     for (let i = 0; i < data.length; i++) {
-        if (data[i].userName == userName) {
-            arr.push(data[i])
+        for (let item of data[i].userName) {
+            if (item == userName) {
+                arr.push(data[i])
+            }
         }
     }
     // console.log(arr)
@@ -93,12 +95,21 @@ router.get("/storeAllGoods", async function (req, res, next) {
         console.log(data)
         for (let i = 0; i < data.length; i++) {
             id = data[i]._id
-            delete data[i]._id;
-            // findData = await client.get("/goods/" + id);
-            // findData.userName = findData.userName.concat(data[i].userName)
-            // console.log(222)
-            // console.log(findData)
-            await client.put("/goods/"+id,data[i])
+            findData = await client.get("/goods/" + id);
+            console.log(findData)
+            for (let item of data[i].userName) {
+                if (findData.userName.length > 0) {
+                    for (let j = 0; j < findData.userName.length; j++) {
+                        if (item != findData.userName[j]) {
+                            delete data[i]._id;
+                            await client.put("/goods/" + id, data[i])
+                        }
+                    }
+                } else {
+                    delete data[i]._id;
+                    await client.put("/goods/" + id, data[i])
+                }
+            }
         }
         res.send("success");
     })

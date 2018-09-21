@@ -159,13 +159,15 @@ export default {
     },
     choose(row) {
       console.log(row);
+      this.arr=[];
       this.arr = row;
       console.log(this.arr);
     },
     addUser() {
       this.addUserName(this.arr);
       this.asyncPutUser(this.arr);
-      this.asyncGetStoreGoods()
+      this.asyncGetStoreGoods();
+      this.dialogTableVisible = false;
     }
   }
 };
